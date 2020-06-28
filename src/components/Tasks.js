@@ -25,16 +25,27 @@ export default props => {
 
     const getRightContent = () => {
         return(
-            <TouchableOpacity style={styles.right}>
+            <TouchableOpacity style={styles.right} onPress={() => props.onDelete && props.onDelete(props.id)}>
                 <Icon name="trash" size={30} color="#fff" />
             </TouchableOpacity>
         )
     }
 
+    const getLeftContent = () => {
+        return(
+            <View style={styles.left}>
+                <Icon name="trash" size={20} color="#fff" style={styles.excludeIcon} />
+                <Text style={styles.exludeText}>Excluir</Text>
+            </View>
+        )
+    }
+
     return(
-        <Swipeable renderRightActions={getRightContent}>
+        <Swipeable renderRightActions={getRightContent}
+                   renderLeftActions={getLeftContent}
+                   onSwipeableLeftOpen={() => props.onDelete && props.onDelete(props.id)}>
         <View style={styles.container}>
-            <TouchableWithoutFeedback onPress={() => props.toggleTask(props.id)}>
+            <TouchableWithoutFeedback onPress={() => props.onToggleTask(props.id)}>
                 <View style={styles.checkContainer}>
                     {getCheckView(props.doneAt)}
                 </View>
@@ -77,6 +88,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',        
         borderRadius: 4,
         padding: 10,
+        backgroundColor: '#fff'
     },
     checkContainer:{
         width: '8%',
@@ -117,6 +129,30 @@ const styles = StyleSheet.create({
         
     },
     right:{
+        backgroundColor: 'red',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        paddingHorizontal: 20,
+        margin: 5,
+        borderRadius: 4
+    },
+    left:{
+        flex: 1,
+        backgroundColor: 'red',
+        flexDirection: 'row',
+        alignItems: 'center',
+        margin: 5,
+        borderRadius: 4
         
+    },
+    exludeText:{
+        fontFamily: '',
+        color: '#fff',
+        fontSize: 20,
+        margin: 10,
+    },
+    excludeIcon: {
+        marginLeft: 10
     }
 })

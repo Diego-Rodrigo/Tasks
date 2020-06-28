@@ -92,11 +92,11 @@ export default class AddTask extends Component {
 
 const styles = StyleSheet.create({
     contanier:{
-        flex: 1,
+       
         backgroundColor: '#fff'        
     },
     background:{
-        
+        flex: 1,
         backgroundColor: 'rgba(0, 0, 0, 0.7)'
     },
     header:{
@@ -105,7 +105,9 @@ const styles = StyleSheet.create({
         color: commonStyles.colors.secundary,
         textAlign: 'center',
         padding: 15,
-        fontSize: 18
+        fontSize: 18,
+        borderRadius: 4,
+        margin: 10
     },
     buttons: {
         flexDirection: 'row',
@@ -123,7 +125,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderWidth: 1,
         borderColor: '#e3e3e3',
-        borderRadius: 6
+        borderRadius: 6,
+        paddingLeft: 5
+        
     },
     date: {
         fontFamily: '',
