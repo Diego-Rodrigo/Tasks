@@ -3,7 +3,8 @@
     "name": "tasks",
     "slug": "tasks",
     "version": "1.0.0",
-    "orientation": "portrait"    
+    "orientation": "portrait"  
+    
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -16,6 +17,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "splash" : {
+      "image": "./assets/img/login.jpg",
+      "resizeMode": "contain",
+      "backgroundColor":"#000"
     }
+    
   
 }
