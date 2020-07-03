@@ -16,10 +16,10 @@ import commonStyles from '../commonStyles';
 
 export default props => {
 
-    const doneOrNotStyle = props.doneAt !== null ?
+    const doneOrNotStyle = props.done_at !== null ?
     {textDecorationLine: 'line-through'} : {}
 
-    const date = props.doneAt ? props.doneAt : props.estimateAt
+    const date = props.done_at ? props.done_at : props.estimate_at
 
     const formatDate = moment(date).locale('pt-br').format('ddd, D [de] MMMM YYYY')
 
@@ -47,7 +47,7 @@ export default props => {
         <View style={styles.container}>
             <TouchableWithoutFeedback onPress={() => props.onToggleTask(props.id)}>
                 <View style={styles.checkContainer}>
-                    {getCheckView(props.doneAt)}
+                    {getCheckView(props.done_at)}
                 </View>
             </TouchableWithoutFeedback>
             
@@ -62,8 +62,8 @@ export default props => {
     )
 }
 
-function getCheckView(doneAt){
-    if(doneAt !== null){
+function getCheckView(done_at){
+    if(done_at !== null){
         return(
             <View style={styles.done}>
                 <Icon name='check' size={15} color='#fff'/>
