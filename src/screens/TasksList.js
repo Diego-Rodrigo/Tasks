@@ -28,7 +28,7 @@ import { server, showError} from '../common'
 import AddTask from './AddTask';
 
 const initialState = {
-    showDoneTasks: false,
+    showDoneTasks: true,
     showAddTask: false,
     visibleTask:[],
     tasks: []

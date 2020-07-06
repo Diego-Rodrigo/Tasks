@@ -4,7 +4,12 @@ import {Alert, Platform} from 'react-native';
 const server = Platform.OS === 'ios' ? 'http://localhost:3000' : 'http://10.0.0.108:3000'
 
 function showError(err){
-    Alert.alert('Ops! Ocorreu um problema!', `Mensagem:${err}`)
+    if(err.response && err.response.data){
+        Alert.alert('Ops! Ocorreu um problema!', `Mensagem:${err.response.data}`)
+    }else{
+        Alert.alert('Ops! Ocorreu um problema!', `Mensagem:${err}`)
+    }   
+    
 }
 
 function showSucess(msg){
